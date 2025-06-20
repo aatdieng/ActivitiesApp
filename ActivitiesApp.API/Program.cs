@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -18,6 +19,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseCors(config=>
+{
+    config.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000","https://localhost:3000");
+});
 app.MapControllers();
 
 using var scope = app.Services.CreateScope();
