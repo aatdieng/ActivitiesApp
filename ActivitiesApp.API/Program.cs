@@ -1,3 +1,5 @@
+using ActivitiesApp.Application.Activities.Queries;
+using ActivitiesApp.Application.Core;
 using ActivitiesApp.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddCors();
 
+builder.Services.AddMediatR(x =>
+     x.RegisterServicesFromAssemblyContaining<GetActivityList.Handler>());
+
+builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 var app = builder.Build();
 
 app.UseHttpsRedirection();
