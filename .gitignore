@@ -486,3 +486,4 @@ ActivitiesApp.API/appsettings.json
 ActivitiesApp.API/reactivities.db
 ActivitiesApp.API/reactivities.db-shm
 .gitignore
+ActivitiesApp.API/reactivities.db-wal
