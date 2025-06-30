@@ -4,12 +4,10 @@ import ActivityCard from "./ActivityCard";
 type Props = {
   activities: Activity[];
   handleSelectedActivity: (id: string) => void;
-  handleDeleteActivity: (id: string) => void;
 };
 export default function ActivityList({
   activities,
   handleSelectedActivity,
-  handleDeleteActivity,
 }: Props) {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
@@ -18,7 +16,6 @@ export default function ActivityList({
           key={activity.id}
           activity={activity}
           handleSelectedActivity={handleSelectedActivity}
-          handleDeleteActivity={handleDeleteActivity}
         />
       ))}
     </Box>
